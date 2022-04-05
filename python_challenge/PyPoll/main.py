@@ -1,7 +1,9 @@
-# Incorporated the csv module
+# Import Statements
 import csv
+import os
 
-# Files to load and output (Remember to change these)
+# Create a path
+# Files to load and output
 file_to_load = "Resources/election_data.csv"
 file_to_output = "analysis/election_analysis.txt"
 
@@ -20,11 +22,8 @@ winning_count = 0
 with open(file_to_load) as election_data:
     reader = csv.DictReader(election_data)
 
-    # For each row...
+    # For each row
     for row in reader:
-
-        # Run the loader animation
-        print(". ", end=""),
 
         # Add to the total vote count
         total_votes = total_votes + 1
@@ -32,8 +31,7 @@ with open(file_to_load) as election_data:
         # Extract the candidate name from each row
         candidate_name = row["Candidate"]
 
-        # If the candidate does not match any existing candidate...
-        # (In a way, our loop is "discovering" candidates as it goes)
+        # If the candidate does not match any existing candidate
         if candidate_name not in candidate_options:
 
             # Add it to the list of candidates in the running
