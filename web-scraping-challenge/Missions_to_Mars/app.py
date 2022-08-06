@@ -27,14 +27,14 @@ collection = db.mars_db
 def index():
     print("I am on index.html")
     # write a statement that finds all the items in the db and sets it to a variable
-    mars = collection.db.mars.find_one()
+    mars = mongo.db.mars.find_one()
     print (mars)
     # render an index.html template and pass it the data you retrieved from the database
     return render_template("index.html", mars=mars)
 
 @app.route("/scrape")
 def scrape():
-    mars = collection.db.mars
+    mars = mongo.db.mars
     mars_data = scrape_mars.scrape()
     mars.update(
         {},
